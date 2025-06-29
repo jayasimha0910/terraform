@@ -1,0 +1,30 @@
+terraform.trfvars:
+------------------
+- If we assign any variables under terraform.tfvars it will overwrite variables.tf vaules
+- If you want to overwrite values, Here right side name should be given same as in varibales.tf file
+    intsnace_type = "t3.small"
+    sg_name = "taking_from_tfvars"
+
+variable preferences:
+--------------------
+1. command line
+    terraform plan -var "sg_name=cmd-line-allow_all"
+2. tfvars
+3. env variables
+    export TF_VARS_<name of the variable>=value
+    export TF_VARS_sg_name=env-variable-allow_all
+    unset TF_VAR_sg_name --> To remove env variable preference
+4. default values
+5. user prompt
+
+
+Loops:
+---------
+01. count based loop 
+    count = 4 --- write count under resource defination block
+    count.index --- very helpful 
+02. for loop 
+    - If you have list - go to count loop
+    - if you have map or set - go to forloop (each.key, each.value)
+    - if you want convert list to map use - toset() - function
+03. dynamic block 
