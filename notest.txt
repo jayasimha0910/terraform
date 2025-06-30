@@ -27,4 +27,92 @@ Loops:
     - If you have list - go to count loop
     - if you have map or set - go to forloop (each.key, each.value)
     - if you want convert list to map use - toset() - function
-03. dynamic block 
+    - You can also use for list[map{}] - list of map
+03. dynamic block
+    -  If you want to allow traffic from specific ports, you have to repeat egress block multiple times.
+    - To avoid that we can use dynamic block concept.
+    - We can repeat the content of the resource but not resource like instance creation etc
+    - Example of block: 
+            egress {
+            description      = "Allow all traffic"  // optional
+            from_port        = var.from_port
+            to_port          = var.to_port
+            protocol         = "-1"
+            cidr_blocks      = var.cidr_blocks
+            ipv6_cidr_blocks = ["::/0"]
+        }
+    - syntax:
+        dynamic "ingress" {
+            for_each = var.ingress_ports
+            content {
+                from_port        = ingress.value["from_port"]             
+                to_port          = ingress.value["to_port"]      
+                protocol         = "-1"              
+                cidr_blocks      = var.cidr_blocks
+                ipv6_cidr_blocks = ["::/0"]
+            }
+        }
+
+To set indentation:
+-------------------
+- use terraform fmt -> commnad to set indentation
+
+
+Interpolation:
+---------------
+- used to mix string and variable
+- Eg:
+    name    = "${each.key}.${var.domain_name}" #monogdb.trishulpictures.shop
+
+
+Functions:
+------------
+-  Terraform will not allow use to write our own Functions.
+-  we have to use built in functions only
+- some built in functions:
+    - length, toset, merge
+
+
+
+Datasources:
+-------------
+- variables -> input
+- outputs -> print the info after creating the resource
+- Datasources are used to query the info in the provider and use that info to create the resources
+
+
+Locals:
+---------
+- In variables - You will see key and value. Here value is static.
+- If you want to get value dynamically then we will go for locals:
+    - locals can have expressions, you can assign a name to it and use it wherever you require
+    - locals are like varibales but here we can use expressions where variables will not allow.
+    - In locals you can use expressions, interpolation, functions
+    - we can write the values which we have provided in locals but in variables we can overwrite
+
+
+state:
+----------
+- IaaC is a declarative way of creating infra.
+- .tf -> Declared/Desired the infra - Expectation
+- What exists in aws - Reality
+- statefiles - terraform uses this file to track the resources what it created in provider
+
+terraform plan/apply:
+---------------------
+- reads .tf files - what user wants
+- reads state files
+- query the provider - already exists or not
+
+    - once above 3 stages are done then only it will start creating resources.
+- terraform apply - here also it will check - any modifications are there?
+- if you do terraform plan or terraform apply - always a refresh operation will happen in background.
+
+
+Note:
+-----
+    - Keeping state file in local will not have collaborative environment. so we need to have centralised code.
+    - So we have remote state - to maintain collaborativeenv's. 
+    - terraform always checks/reffers centralised state file. So we dont have duplicate resources.
+    - In AWS we have a service called - s3 bucket to maintain state file with localing.
+
