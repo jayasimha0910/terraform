@@ -1,3 +1,14 @@
+terraform commands:
+-------------------
+- terraform init 
+- terraform init -reconfigure
+- terraform apply -auto-approve
+- terraform validate
+- terraform fmt
+- terraform destroy -auto-approve
+
+
+
 terraform.trfvars:
 ------------------
 - If we assign any variables under terraform.tfvars it will overwrite variables.tf vaules
@@ -115,4 +126,27 @@ Note:
     - So we have remote state - to maintain collaborativeenv's. 
     - terraform always checks/reffers centralised state file. So we dont have duplicate resources.
     - In AWS we have a service called - s3 bucket to maintain state file with localing.
+
+Note:
+-----
+- s3 bucket to store state file (simple storage service)
+- Dynamo DB - locking purpose - Depricated
+    - LockID - Keyword shoudl be same 
+- use s3 with native locking
+
+
+Provisioners:
+----------------
+- when you create the server using terraform, we can take some actions using provisioners
+1. local-exec - where I run terraform command, that is local to terraform
+2. remote-exec - remote means server I created using terraform - if you want to run some commands in remote machine without login
+
+
+
+Multiple-infra using terraform:
+-------------------------------------
+- DEV, QA, PROD
+
+
+
 
