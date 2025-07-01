@@ -34,10 +34,21 @@ variable "ami_id" {
 }
 
 variable "instance_type" {
-  
-  
+ 
+}
+variable "from_port" {
+  default = 0
+
 }
 
+variable "to_port" {
+  default = 0
 
+}
+
+variable "cidr_blocks" {
+  default = ["0.0.0.0/0"]
+  
+}
 
 
