@@ -9,7 +9,7 @@ terraform commands:
 
 
 
-terraform.trfvars:
+terraform.tfvars:
 ------------------
 - If we assign any variables under terraform.tfvars it will overwrite variables.tf vaules
 - If you want to overwrite values, Here right side name should be given same as in varibales.tf file
@@ -147,6 +147,18 @@ Multiple-infra using terraform:
 -------------------------------------
 - DEV, QA, PROD
 
+- Commands to switch to dev env's:
+    - terraform init -backend-config=dev/backend.tfvars
+    - terraform init -backend-config=prod/backend.tfvars
 
+    - terraform plan -var-file=dev/dev.tfvars
+    - terraform plan -var-file=dev/prod.tfvars
+
+    - terraform apply -var-file=dev/dev.tfvars
+    - terraform apply -var-file=dev/prod.tfvars
+
+- if you are changing from one env to other to give reconfigure.
+- Eg: I was in dev and want to switch to prod 
+    - terraform init -reconfigure -backend-config=prod/backend.tfvars
 
 
