@@ -40,7 +40,7 @@ Loops:
     - if you want convert list to map use - toset() - function
     - You can also use for list[map{}] - list of map
 03. dynamic block
-    -  If you want to allow traffic from specific ports, you have to repeat egress block multiple times.
+    - If you want to allow traffic from specific ports, you have to repeat egress block multiple times.
     - To avoid that we can use dynamic block concept.
     - We can repeat the content of the resource but not resource like instance creation etc
     - Example of block: 
