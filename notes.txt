@@ -180,4 +180,16 @@ Workspace:
     - based on key selection you will get map value, if keyvalue is present it will give default value
 
 
+Terraform Modules:
+--------------------
+- DRY principle
+- Module -> Wrire a common code at one place
+- Project -> use the module by passing variables 
 
+
+Naming convention:
+---------------------
+- Use underscore(_) -> use in programming - resoure name
+- Use dash(-) -> where name are exposed to humans
+- prefer to use lower case and numbers only
+- Dont repeat resource type in resource name
