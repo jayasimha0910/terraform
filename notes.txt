@@ -6,6 +6,7 @@ terraform commands:
 - terraform validate
 - terraform fmt
 - terraform destroy -auto-approve
+- terraform show -> shows the current state of the infrastructure
 
 
 
@@ -160,5 +161,23 @@ Multiple-infra using terraform:
 - if you are changing from one env to other to give reconfigure.
 - Eg: I was in dev and want to switch to prod 
     - terraform init -reconfigure -backend-config=prod/backend.tfvars
+
+
+
+Workspace:
+-----------
+- terraform workspace
+    - Provides the list of commands
+- terraform workspace new dev
+    - It creates new dev workspace env
+- terraform workspace new prod
+    - It creates new prod workspace env
+- terraform workspace select <env_name>
+    - To shift to another env
+
+- terraform.workspace -> Keyword
+- lookup(map, key, default) -> function
+    - based on key selection you will get map value, if keyvalue is present it will give default value
+
 
 
