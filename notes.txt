@@ -204,4 +204,8 @@ VPC:
     - Private Subnet
 - Routes
 - Route Table
+- Elastic IP 
+    - Static IP 
+- Peering
+
 
