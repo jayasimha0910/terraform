@@ -193,3 +193,15 @@ Naming convention:
 - Use dash(-) -> where name are exposed to humans
 - prefer to use lower case and numbers only
 - Dont repeat resource type in resource name
+
+
+VPC:
+-----
+- Virtual Private Cloud
+- Internet Gateway
+- Subnets
+    - Public Subnet
+    - Private Subnet
+- Routes
+- Route Table
+
