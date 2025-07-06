@@ -7,6 +7,7 @@ terraform commands:
 - terraform fmt
 - terraform destroy -auto-approve
 - terraform show -> shows the current state of the infrastructure
+- terraform init -upgrade
 
 
 
@@ -208,4 +209,14 @@ VPC:
     - Static IP 
 - Peering
 
+
+Ports:
+-------
+- http -> 80
+- https -> 443
+- ssh -> 22
+
+SSM Parameter Store:
+--------------------
+- Used to store values like vpc_id, sg_id etc..
 
