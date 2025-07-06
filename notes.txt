@@ -83,7 +83,7 @@ Functions:
 -  Terraform will not allow use to write our own Functions.
 -  we have to use built in functions only
 - some built in functions:
-    - length, toset, merge
+    - length, toset, merge, split, join
 
 
 
@@ -210,13 +210,23 @@ VPC:
 - Peering
 
 
+
 Ports:
 -------
 - http -> 80
 - https -> 443
 - ssh -> 22
 
+
 SSM Parameter Store:
 --------------------
 - Used to store values like vpc_id, sg_id etc..
+
+
+Load Balancer:
+---------------
+- Target Group
+- Health Check
+- ALB - Application Load Balancer
+
 
