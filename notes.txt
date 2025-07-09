@@ -228,5 +228,12 @@ Load Balancer:
 - Target Group
 - Health Check
 - ALB - Application Load Balancer
+- Loadbalancer, Listener, Targetgroup
 
 
+- version = "specify_value"
+    - If you dont want to upgrade terraform version them mention specific version of module to use
+
+
+- OpenVPN --> VPN server
+- OpenVPN --> client
